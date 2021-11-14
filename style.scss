@@ -2,7 +2,7 @@
 @import "partials/typography";
 @import 'partials/layout'; // responsive grid and media queries
 
-@mixin gridPat($color, $grid, $col1, $col2)  {
+@mixin gridPat($color, $grid, $col1, $col2) {
     background-color: $color;
     display: $grid;
     grid-template-columns: $col1 $col2;
@@ -20,19 +20,14 @@ html {
 }
 
 body {
-    line-height: 1.88889;
-    color: #555753;
-    background-color: $color-4;
+    min-height: 50vh;
+    background-image: url("./image/texture_pink2_2048.jpg");
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-}
-
-p {
-    font-family: $font1;
-    margin-top: 0;
-    text-align: justify;
-    font-size: 1em;
 }
 
 h3 {
@@ -43,29 +38,165 @@ h3 {
 }
 
 .page-wrapper {
-    width: 98%;
-    margin: 1%;
+    background-color: #fed6e173;
+    width: 80%;
+    margin: 0 auto;
+    padding: 1.2em;
     display: flex;
     flex-direction: column;
 
     @include MQ(S) {
-        @include gridPat($color-2,grid ,5fr ,2fr )
+        @include gridPat($color-2, grid, 5fr, 2fr)
     }
 
     @include MQ(M) {
-        @include gridPat(red,grid ,6fr ,2fr )
+        @include gridPat(red, grid, 6fr, 2fr)
     }
 
     @include MQ(L) {
-        @include gridPat(yellow,grid ,6fr ,2fr )
+        @include gridPat(yellow, grid, 6fr, 2fr)
     }
 }
 
 //part elena
 .intro {
-    
+
     @include MQ(S) {
-        background-color: $color-4;
+        background-color: $color-5;
+        grid-column: 1/2;
+        grid-row: 1;
+    }
+}
+
+header {
+    text-align: center;
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 0;
+    padding: 0;
+
+    h1 {
+        font-family: $font3;
+        font-size: 2rem;
+        color: $color-6;
+        text-shadow: 1px 1px 2px $color-5;
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        font-family: $font1;
+        font-size: 1.5rem;
+        color: $color-3;
+        text-shadow: 2px 2px 2px $color-2, 2px 2px 2px $color-4;
+        text-transform: uppercase;
+        margin: 0;
+        padding: 0;
+    }
+
+    @include MQ(S) {
+        float: left;
+        position: absolute;
+        left: 260px;
+        text-align: left;
+        box-sizing: content-box;
+        max-width: 360px;
+        font-size: 40px;
+        padding-right: 1em;
+
+        h1 {
+            margin-bottom: 0;
+            font-size: 30px;
+        }
+
+        h2 {
+            margin-top: 10px;
+
+        }
+    }
+}
+
+p {
+    font-family: $font1;
+}
+
+.summary>p {
+    margin-top: 0;
+    text-align: justify;
+
+    @include MQ(S) {
+        text-align: center;
+        padding: 0 2px;
+        margin: 0;
+    }
+}
+
+.preamble,
+.explanation {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 5px;
+    border: 2px solid black;
+
+    h3,
+    p {
+        padding: 0 2px 0 2px;
+        margin: 0;
+    }
+
+}
+
+.preamble {
+    @include MQ(S) {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        left: 295px;
+        box-sizing: content-box;
+        max-width: 580px;
+    }
+}
+
+.explanation {
+    @include MQ(S) {
+        max-width: 580px;
+        margin-top: 2em;
+    }
+}
+
+.summary {}
+
+.summary::before {
+    content: url(./image/eye1.png);
+    zoom: 10%;
+    display: flex;
+    justify-content: center;
+
+    @include MQ(S) {
+        content: url(./image/eye1.png);
+        zoom: 15%;
+
+    }
+
+}
+
+.summary>p {
+    text-transform: uppercase;
+    padding: 0.5rem;
+    color: $color-1;
+
+    @include MQ(S) {
+        text-align: left;
+        padding: 0 2px 0 2px;
+        margin: 0;
+    }
+}
+
+//part elena
+.intro {
+
+    @include MQ(S) {
+        background-color: $color-5;
         grid-column: 1/2;
         grid-row: 1;
     }
@@ -75,6 +206,7 @@ h3 {
 .main {
     grid-column: 1/2;
     grid-row: 2/6;
+
     @include MQ(S) {
         background-color: $color-4;
         grid-column: 1/2;
@@ -84,13 +216,22 @@ h3 {
 
 //siderbar
 .sidebar {
+    background-image: url("./image/bokeh-_640.jpg");
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
     font-family: $font1;
-    grid-column: 2/3;
-    grid-row: 1/19;
+    margin: 0 -1.2rem;
+
+    @include MQ(S) {
+        grid-column: 2/3;
+        grid-row: 1/19;
+    }
+
 }
 
 .wrapper {
-    background-image: url("./image/texture_pink2_800.jpg") ;
+
     padding: 1rem;
     font-size: 0.9rem;
     color: $color-1;
@@ -102,15 +243,15 @@ h3 {
 
 }
 
-nav {
+.wrapper nav {
     background-color: transparent;
-   
+
     ul {
         display: flex;
         flex-direction: column;
         width: 100%;
-        list-style: none; 
-        padding: 0.5rem;
+        list-style: none;
+        padding: 0.7rem;
         margin: 0;
 
         li {
@@ -149,9 +290,8 @@ nav {
 .select,
 .archives,
 .resources {
-
-    color: $color-4;
-    text-shadow: 1px 1px 1px $color-2;
+    color: $color-2;
+    text-shadow: 1px 1px 1px $color-1, 2px 2px 2px $color-3;
     text-transform: uppercase;
     font-size: 1.2rem;
 
@@ -169,11 +309,11 @@ nav {
     flex-direction: column;
 }
 
-.design-name, .viewall>a, .next, .indicator {
+.design-name {
     font-family: $font1;
-    color: $color-4;
+    color: $color-3;
     text-transform: uppercase;
-    font-size: 0.8rem;
+    font-size: 1rem;
     text-shadow: 1px 1px 1px $color-1;
 
 }
@@ -181,16 +321,99 @@ nav {
 .designer-name {
     font-family: $font2;
     color: $color-5;
+    text-shadow: 1px 1px 1px $color-1, 2px 2px 2px $color-4;
+}
+
+
+.next a {
+    font-family: $font1;
+    color: $color-3;
+    text-transform: uppercase;
+    font-size: 1rem;
     text-shadow: 1px 1px 1px $color-1;
+
+}
+
+.indicator {
+    font-size: 2rem;
+    font-family: $font2;
+}
+
+.viewall a {
+    font-family: $font1;
+    color: $color-3;
+    text-transform: uppercase;
+    font-size: 1rem;
+    text-shadow: 1px 1px 1px $color-1;
+}
+
+.zen-resources {
+    background-color: transparent;
+
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        list-style: none;
+        padding: 0.7rem;
+        margin: 0;
+
+        li {
+            a {
+                text-decoration: none;
+                padding: 0;
+                margin: 0;
+                font-family: $font1;
+                color: $color-3;
+                text-transform: uppercase;
+                font-size: 1rem;
+                text-shadow: 1px 1px 1px $color-1;
+            }
+        }
+    }
+
+    @include MQ(S) {
+        nav {
+            ul {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                list-style: none;
+                padding: 0.5rem;
+
+                li {
+                    border: solid 1px 1px $color-2;
+
+                    a {
+                        text-decoration: none;
+                        padding: 0.2rem;
+                    }
+                }
+            }
+        }
+    }
 }
 
 footer {
     text-align: center;
-    background-color: chocolate;
+    background-color: $color-5;
+    padding: 0.5rem;
+    margin: 0 -1.2rem;
 
-}
+    a {
+        font-family: $font1;
+        color: $color-2;
+        margin-right: 20px;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
 
-footer a:link,
-footer a:visited {
-    margin-right: 20px;
+    a:visited {
+        color: $color-6;
+    }
+
+    a:hover {
+        color: $color-4;
+    }
 }
