@@ -1,0 +1,243 @@
+h1 {
+  font: 200 "Gowun Dodum", serif #CE0052;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  position: relative;
+  max-width: 100%;
+}
+
+body {
+  line-height: 1.88889;
+  color: #555753;
+  background-color: #FED6E1;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+p {
+  font-family: "Gowun Dodum", serif;
+  margin-top: 0;
+  text-align: justify;
+  font-size: 1em;
+}
+
+h3 {
+  font-family: "Gideon Roman", sans-serif;
+  font-size: 35px;
+  color: #018D8C;
+  text-align: center;
+}
+
+.page-wrapper {
+  width: 98%;
+  margin: 1%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media only screen and (min-width: 768px) {
+  .page-wrapper {
+    background-color: #CE0052;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 5fr 2fr;
+        grid-template-columns: 5fr 2fr;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .page-wrapper {
+    background-color: red;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 6fr 2fr;
+        grid-template-columns: 6fr 2fr;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .page-wrapper {
+    background-color: yellow;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 6fr 2fr;
+        grid-template-columns: 6fr 2fr;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .intro {
+    background-color: #FED6E1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1/2;
+    -ms-grid-row: 1;
+    grid-row: 1;
+  }
+}
+
+.main {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 4;
+  grid-row: 2/6;
+}
+
+@media only screen and (min-width: 768px) {
+  .main {
+    background-color: #FED6E1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1/2;
+    -ms-grid-row: 2;
+    grid-row: 2;
+  }
+}
+
+.sidebar {
+  font-family: "Gowun Dodum", serif;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 18;
+  grid-row: 1/19;
+}
+
+.wrapper {
+  background-image: url("./image/texture_pink2_800.jpg");
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #373135;
+  font-weight: bold;
+}
+
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    height: 140rem;
+  }
+}
+
+nav {
+  background-color: transparent;
+}
+
+nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  list-style: none;
+  padding: 0.5rem;
+  margin: 0;
+}
+
+nav ul li {
+  border: solid 1px 1px #CE0052;
+}
+
+nav ul li a {
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  nav nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+    list-style: none;
+    padding: 0.5rem;
+  }
+  nav nav ul li {
+    border: solid 1px 1px #CE0052;
+  }
+  nav nav ul li a {
+    text-decoration: none;
+    padding: 0.2rem;
+  }
+}
+
+.select,
+.archives,
+.resources {
+  color: #FED6E1;
+  text-shadow: 1px 1px 1px #CE0052;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+@media only screen and (min-width: 1024px) {
+  .select,
+  .archives,
+  .resources {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .select,
+  .archives,
+  .resources {
+    font-size: 1.8rem;
+  }
+}
+
+.design-selection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.design-name, .viewall > a, .next, .indicator {
+  font-family: "Gowun Dodum", serif;
+  color: #FED6E1;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  text-shadow: 1px 1px 1px #373135;
+}
+
+.designer-name {
+  font-family: "Gideon Roman", sans-serif;
+  color: #018D8C;
+  text-shadow: 1px 1px 1px #373135;
+}
+
+footer {
+  text-align: center;
+  background-color: chocolate;
+}
+
+footer a:link,
+footer a:visited {
+  margin-right: 20px;
+}
+/*# sourceMappingURL=style.css.map */

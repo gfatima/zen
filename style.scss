@@ -1,0 +1,196 @@
+@import "partials/colors";
+@import "partials/typography";
+@import 'partials/layout'; // responsive grid and media queries
+
+@mixin gridPat($color, $grid, $col1, $col2)  {
+    background-color: $color;
+    display: $grid;
+    grid-template-columns: $col1 $col2;
+}
+
+//part ivette
+html {
+    margin: 0;
+    padding: 0;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+    max-width: 100%;
+}
+
+body {
+    line-height: 1.88889;
+    color: #555753;
+    background-color: $color-4;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+p {
+    font-family: $font1;
+    margin-top: 0;
+    text-align: justify;
+    font-size: 1em;
+}
+
+h3 {
+    font-family: $font2;
+    font-size: 35px;
+    color: $color-5;
+    text-align: center;
+}
+
+.page-wrapper {
+    width: 98%;
+    margin: 1%;
+    display: flex;
+    flex-direction: column;
+
+    @include MQ(S) {
+        @include gridPat($color-2,grid ,5fr ,2fr )
+    }
+
+    @include MQ(M) {
+        @include gridPat(red,grid ,6fr ,2fr )
+    }
+
+    @include MQ(L) {
+        @include gridPat(yellow,grid ,6fr ,2fr )
+    }
+}
+
+//part elena
+.intro {
+    
+    @include MQ(S) {
+        background-color: $color-4;
+        grid-column: 1/2;
+        grid-row: 1;
+    }
+}
+
+//part Cami
+.main {
+    grid-column: 1/2;
+    grid-row: 2/6;
+    @include MQ(S) {
+        background-color: $color-4;
+        grid-column: 1/2;
+        grid-row: 2;
+    }
+}
+
+//siderbar
+.sidebar {
+    font-family: $font1;
+    grid-column: 2/3;
+    grid-row: 1/19;
+}
+
+.wrapper {
+    background-image: url("./image/texture_pink2_800.jpg") ;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: $color-1;
+    font-weight: bold;
+
+    @include MQ(S) {
+        height: 140rem;
+    }
+
+}
+
+nav {
+    background-color: transparent;
+   
+    ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        list-style: none; 
+        padding: 0.5rem;
+        margin: 0;
+
+        li {
+            border: solid 1px 1px $color-2;
+
+            a {
+                text-decoration: none;
+                padding: 0;
+                margin: 0;
+            }
+        }
+    }
+
+    @include MQ(S) {
+        nav {
+            ul {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                list-style: none;
+                padding: 0.5rem;
+
+                li {
+                    border: solid 1px 1px $color-2;
+
+                    a {
+                        text-decoration: none;
+                        padding: 0.2rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.select,
+.archives,
+.resources {
+
+    color: $color-4;
+    text-shadow: 1px 1px 1px $color-2;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+
+    @include MQ(M) {
+        font-size: 1.5rem;
+    }
+
+    @include MQ(L) {
+        font-size: 1.8rem;
+    }
+}
+
+.design-selection {
+    display: flex;
+    flex-direction: column;
+}
+
+.design-name, .viewall>a, .next, .indicator {
+    font-family: $font1;
+    color: $color-4;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    text-shadow: 1px 1px 1px $color-1;
+
+}
+
+.designer-name {
+    font-family: $font2;
+    color: $color-5;
+    text-shadow: 1px 1px 1px $color-1;
+}
+
+footer {
+    text-align: center;
+    background-color: chocolate;
+
+}
+
+footer a:link,
+footer a:visited {
+    margin-right: 20px;
+}
