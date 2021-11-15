@@ -46,11 +46,11 @@ h3 {
     flex-direction: column;
 
     @include MQ(S) {
-        @include gridPat($color-2, grid, 5fr, 2fr)
+        @include gridPat(#fed6e198, grid, 5fr, 2fr)
     }
 
     @include MQ(M) {
-        @include gridPat(red, grid, 6fr, 2fr)
+        @include gridPat(transparent, grid, 6fr, 2fr)
     }
 
     @include MQ(L) {
@@ -62,7 +62,6 @@ h3 {
 .intro {
 
     @include MQ(S) {
-        background-color: $color-5;
         grid-column: 1/2;
         grid-row: 1;
     }
@@ -79,7 +78,7 @@ header {
         font-family: $font3;
         font-size: 2rem;
         color: $color-6;
-        text-shadow: 1px 1px 2px $color-5;
+        text-shadow: 1px 1px 2px $color-5, 2px 2px 2px $color-2;
         margin: 0;
         padding: 0;
     }
@@ -95,23 +94,19 @@ header {
     }
 
     @include MQ(S) {
-        float: left;
-        position: absolute;
-        left: 260px;
-        text-align: left;
         box-sizing: content-box;
-        max-width: 360px;
         font-size: 40px;
         padding-right: 1em;
 
         h1 {
+            text-align: center;
             margin-bottom: 0;
             font-size: 30px;
         }
 
         h2 {
+            text-align: center;
             margin-top: 10px;
-
         }
     }
 }
@@ -127,6 +122,52 @@ p {
     @include MQ(S) {
         text-align: center;
         padding: 0 2px;
+        margin: 0;
+    }
+}
+
+.summary {}
+
+.summary::before {
+    content: url(./image/eye1.png);
+    zoom: 10%;
+    display: flex;
+    justify-content: center;
+
+    @include MQ(S) {
+        content: url(./image/eye1.png);
+        zoom: 10%;
+        display: flex;
+        justify-content: flex-end;
+
+    }
+
+}
+
+.preamble::before {
+    content: url(./image/brush.png);
+    zoom: 10%;
+    display: flex;
+    justify-content: center;
+
+    @include MQ(S) {
+        content: url(./image/brush.png);
+        zoom: 10%;
+        display: flex;
+        flex-direction: column;
+        box-sizing: content-box;
+     }
+
+}
+
+.summary>p {
+    text-transform: uppercase;
+    padding: 0.5rem;
+    color: $color-1;
+
+    @include MQ(S) {
+        text-align: left;
+        padding: 0 2px 0 2px;
         margin: 0;
     }
 }
@@ -147,13 +188,25 @@ p {
 }
 
 .preamble {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 5px;
+    border: 2px solid black;
+
+    h3,
+    p {
+        padding: 0 2px 0 2px;
+        margin: 0;
+    }
+}
+.explanation::before {
     @include MQ(S) {
+        content: url(./image/labial2.png);
+        zoom: 30%;
+        float: left;
         display: flex;
-        position: relative;
         flex-direction: column;
-        left: 295px;
         box-sizing: content-box;
-        max-width: 580px;
     }
 }
 
@@ -174,7 +227,9 @@ p {
 
     @include MQ(S) {
         content: url(./image/eye1.png);
-        zoom: 15%;
+        zoom: 10%;
+        display: flex;
+        justify-content: flex-end;
 
     }
 
@@ -196,7 +251,6 @@ p {
 .intro {
 
     @include MQ(S) {
-        background-color: $color-5;
         grid-column: 1/2;
         grid-row: 1;
     }
@@ -226,6 +280,7 @@ p {
     @include MQ(S) {
         grid-column: 2/3;
         grid-row: 1/19;
+        margin: 0;
     }
 
 }

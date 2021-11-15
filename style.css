@@ -45,7 +45,7 @@ h3 {
 
 @media only screen and (min-width: 768px) {
   .page-wrapper {
-    background-color: #CE0052;
+    background-color: #fed6e198;
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 5fr 2fr;
@@ -55,7 +55,7 @@ h3 {
 
 @media only screen and (min-width: 1024px) {
   .page-wrapper {
-    background-color: red;
+    background-color: transparent;
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 6fr 2fr;
@@ -75,7 +75,6 @@ h3 {
 
 @media only screen and (min-width: 768px) {
   .intro {
-    background-color: #018D8C;
     -ms-grid-column: 1;
     -ms-grid-column-span: 1;
     grid-column: 1/2;
@@ -101,7 +100,7 @@ header h1 {
   font-family: "Merienda", cursive;
   font-size: 2rem;
   color: #1ac6ff;
-  text-shadow: 1px 1px 2px #018D8C;
+  text-shadow: 1px 1px 2px #018D8C, 2px 2px 2px #CE0052;
   margin: 0;
   padding: 0;
 }
@@ -118,21 +117,18 @@ header h2 {
 
 @media only screen and (min-width: 768px) {
   header {
-    float: left;
-    position: absolute;
-    left: 260px;
-    text-align: left;
     -webkit-box-sizing: content-box;
             box-sizing: content-box;
-    max-width: 360px;
     font-size: 40px;
     padding-right: 1em;
   }
   header h1 {
+    text-align: center;
     margin-bottom: 0;
     font-size: 30px;
   }
   header h2 {
+    text-align: center;
     margin-top: 10px;
   }
 }
@@ -154,6 +150,71 @@ p {
   }
 }
 
+.summary::before {
+  content: url(./image/eye1.png);
+  zoom: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .summary::before {
+    content: url(./image/eye1.png);
+    zoom: 10%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+}
+
+.preamble::before {
+  content: url(./image/brush.png);
+  zoom: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .preamble::before {
+    content: url(./image/brush.png);
+    zoom: 10%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+  }
+}
+
+.summary > p {
+  text-transform: uppercase;
+  padding: 0.5rem;
+  color: #373135;
+}
+
+@media only screen and (min-width: 768px) {
+  .summary > p {
+    text-align: left;
+    padding: 0 2px 0 2px;
+    margin: 0;
+  }
+}
+
 .preamble,
 .explanation {
   margin-top: 1em;
@@ -170,20 +231,33 @@ p {
   margin: 0;
 }
 
+.preamble {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 5px;
+  border: 2px solid black;
+}
+
+.preamble h3,
+.preamble p {
+  padding: 0 2px 0 2px;
+  margin: 0;
+}
+
 @media only screen and (min-width: 768px) {
-  .preamble {
+  .explanation::before {
+    content: url(./image/labial2.png);
+    zoom: 30%;
+    float: left;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    position: relative;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    left: 295px;
     -webkit-box-sizing: content-box;
             box-sizing: content-box;
-    max-width: 580px;
   }
 }
 
@@ -208,7 +282,13 @@ p {
 @media only screen and (min-width: 768px) {
   .summary::before {
     content: url(./image/eye1.png);
-    zoom: 15%;
+    zoom: 10%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
   }
 }
 
@@ -228,7 +308,6 @@ p {
 
 @media only screen and (min-width: 768px) {
   .intro {
-    background-color: #018D8C;
     -ms-grid-column: 1;
     -ms-grid-column-span: 1;
     grid-column: 1/2;
@@ -274,6 +353,7 @@ p {
     -ms-grid-row: 1;
     -ms-grid-row-span: 18;
     grid-row: 1/19;
+    margin: 0;
   }
 }
 
