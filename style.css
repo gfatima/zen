@@ -241,6 +241,7 @@ p {
   .preamble::before {
     content: url(./image/brush.png);
     zoom: 10%;
+    position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -262,6 +263,9 @@ p {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
   border-bottom: none;
+  background-color: rgba(255, 255, 255, 0.4);
+  -webkit-backdrop-filter: invert(20px);
+          backdrop-filter: invert(20px);
 }
 
 .preamble h3 {
