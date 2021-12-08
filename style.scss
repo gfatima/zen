@@ -10,8 +10,7 @@
 
 //part ivette
 html {
-    margin: 0;
-    padding: 0;
+
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -54,7 +53,7 @@ h3 {
     }
 
     @include MQ(L) {
-        @include gridPat(yellow, grid, 6fr, 2fr)
+        @include gridPat(transparent, grid, 6fr, 2fr)
     }
 }
 
@@ -71,62 +70,81 @@ header {
     text-align: center;
     display: flex;
     flex-direction: column-reverse;
-    margin: 0;
-    padding: 0;
 
     h1 {
         font-family: $font3;
-        font-size: 2rem;
+        font-size: 3rem;
         color: $color-6;
         text-shadow: 1px 1px 2px $color-5, 2px 2px 2px $color-2;
-        margin: 0;
-        padding: 0;
     }
 
     h2 {
         font-family: $font1;
-        font-size: 1.5rem;
+        font-size: 2.5rem;
         color: $color-3;
-        text-shadow: 2px 2px 2px $color-2, 2px 2px 2px $color-4;
+        text-shadow: 2px 2px 2px $color-2, 2px 2px 2px $color-1, 2px 2px 2px $color-4;
         text-transform: uppercase;
         margin: 0;
         padding: 0;
+
+        abbr {
+            color: white;
+            font-family: $font3;
+            text-shadow: 3px 3px 3px $color-2, 3px 3px 3px $color-3, 3px 3px 3px $color-4;
+
+        }
     }
 
     @include MQ(S) {
         box-sizing: content-box;
-        font-size: 40px;
         padding-right: 1em;
 
         h1 {
             text-align: center;
             margin-bottom: 0;
-            font-size: 30px;
+            font-size: 3.3rem;
+            margin-bottom: 1.5rem;
         }
 
         h2 {
             text-align: center;
             margin-top: 10px;
+            font-size: 3rem;
         }
+
+        abbr {
+            font-size: 3.5rem;
+        }
+    }
+
+    @include MQ(M) {
+        box-sizing: content-box;
+        padding-right: 1em;
+
+        h1 {
+            text-align: center;
+            margin: 0;
+            font-size: 5rem;
+            padding: 0.5rem;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 0;
+            font-size: 4rem;
+            letter-spacing: 1rem;
+        }
+
+        abbr {
+            font-size: 5rem;
+        }
+
     }
 }
 
 p {
     font-family: $font1;
 }
-
-.summary>p {
-    margin-top: 0;
-    text-align: justify;
-
-    @include MQ(S) {
-        text-align: center;
-        padding: 0 2px;
-        margin: 0;
-    }
-}
-
-.summary {}
 
 .summary::before {
     content: url(./image/eye1.png);
@@ -135,18 +153,51 @@ p {
     justify-content: center;
 
     @include MQ(S) {
-        content: url(./image/eye1.png);
-        zoom: 10%;
+        zoom: 15%;
         display: flex;
         justify-content: flex-end;
+        margin: 1.5rem;
+
+    }
+    @include MQ(M) {
+        zoom: 25%;
+        display: flex;
+        justify-content: flex-end;
+        margin: 1.5rem;
 
     }
 
 }
 
+.summary {
+    p {
+        text-transform: uppercase;
+        text-align: justify;
+        font-weight: bold;
+        padding: 0.5rem;
+        color: $color-1;
+
+        abbr {
+            font-size: 1.5rem;
+            color: $color-4;
+            text-shadow: 2px 2px 2px $color-3;
+        }
+
+        a {
+            color: $color-5;
+            text-shadow: 1px 1px 1px $color-1;
+            text-decoration: none;
+        }
+
+        @include MQ(S) {
+            text-align: left;
+            padding: 0 2px;
+
+        }
+    }
+}
+
 .preamble::before {
-    content: url(./image/brush.png);
-    zoom: 10%;
     display: flex;
     justify-content: center;
 
@@ -156,51 +207,108 @@ p {
         display: flex;
         flex-direction: column;
         box-sizing: content-box;
-     }
-     
-
-}
-
-.summary>p {
-    text-transform: uppercase;
-    padding: 0.5rem;
-    color: $color-1;
-
-    @include MQ(S) {
-        text-align: left;
-        padding: 0 2px 0 2px;
-        margin: 0;
     }
-}
 
-.preamble,
-.explanation {
-    margin-top: 1em;
-    margin-bottom: 1em;
-    padding: 5px;
-    border: 2px solid black;
-
-    h3,
-    p {
-        padding: 0 2px 0 2px;
-        margin: 0;
-    }
 
 }
 
 .preamble {
     margin-top: 1em;
+    margin-bottom: 0;
+    padding: 1rem;
+    border: 10px ridge $color-1;
+    border-radius: 5px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom: none;
+
+    h3 {
+        color: $color-2;
+    }
+}
+
+
+.explanation,
+.participation,
+.benefits,
+.requirements {
+    margin-top: 0;
     margin-bottom: 1em;
-    padding: 5px;
-    border: 2px solid black;
+    padding: 1rem;
 
     h3,
     p {
         padding: 0 2px 0 2px;
         margin: 0;
     }
+
 }
+
+.main {
+    grid-column: 1/2;
+    grid-row: 2/6;
+    background-color: black;
+    border: 10px ridge $color-1;
+    border-radius: 5px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+
+    @include MQ(S) {}
+
+    @include MQ(M) {
+        border: 15px ridge $color-1;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @include MQ(L) {
+        border: 15px ridge $color-1;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+
+.intro {
+
+    @include MQ(S) {
+        grid-column: 1/2;
+        grid-row: 1;
+    }
+}
+
+.explanation {
+    width: 80%;
+    height: auto;
+    margin: 4% auto;
+    padding: auto;
+    background-color: rgba(227, 228, 229, 0.9);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(227, 228, 229, 0.8);
+    outline: 5px solid rgba(227, 228, 229, 0.8);
+    outline-offset: -7px;
+
+    h3,
+    abbr,
+    a {
+        color: rgba(227, 228, 229, 0.8);
+        text-shadow: 1px 1px 2px $color-1;
+    }
+
+    abbr {
+        font-size: 1.3rem;
+    }
+
+    @include MQ(S) {
+        padding: auto;
+    }
+
+    @include MQ(L) {}
+}
+
 .explanation::before {
+
     @include MQ(S) {
         content: url(./image/labial2.png);
         zoom: 30%;
@@ -211,60 +319,112 @@ p {
     }
 }
 
-.explanation {
+.participation {
+    width: 80%;
+    height: auto;
+    margin: 4% auto;
+    padding: auto;
+    background-color: rgba(26, 198, 255, 0.9);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(26, 198, 255, 0.5);
+    outline: 5px solid rgba(26, 198, 255, 0.7);
+    outline-offset: -7px;
+
+    h3,
+    abbr,
+    a {
+        color: rgba(26, 198, 255, 0.8);
+        text-shadow: 1px 1px 2px $color-1;
+    }
+
+    abbr {
+        font-size: 1.3rem;
+    }
+
+    a {
+        color: $color-5;
+        text-decoration: none;
+        text-shadow: 1px 1px 1px $color-1;
+
+    }
+
     @include MQ(S) {
         max-width: 580px;
         margin-top: 2em;
     }
 }
 
-.summary {}
+.benefits {
+    width: 80%;
+    height: auto;
+    margin: 4% auto;
+    padding: auto;
+    background-color: rgba(255, 102, 255, 0.85);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 102, 255, 0.5);
+    outline: 5px solid rgba(255, 102, 255, 0.7);
+    outline-offset: -7px;
 
-.summary::before {
-    content: url(./image/eye1.png);
-    zoom: 10%;
-    display: flex;
-    justify-content: center;
-
-    @include MQ(S) {
-        content: url(./image/eye1.png);
-        zoom: 10%;
-        display: flex;
-        justify-content: flex-end;
-
+    h3,
+    abbr {
+        color: rgba(255, 102, 255, 0.8);
+        text-shadow: 1px 1px 1px $color-1;
     }
 
-}
-
-.summary>p {
-    text-transform: uppercase;
-    padding: 0.5rem;
-    color: $color-1;
+    abbr {
+        font-size: 1.3rem;
+    }
 
     @include MQ(S) {
-        text-align: left;
-        padding: 0 2px 0 2px;
-        margin: 0;
+        max-width: 580px;
+        margin-top: 2em;
     }
 }
 
-//part elena
-.intro {
+.requirements {
+    width: 80%;
+    height: auto;
+    margin: 4% auto;
+    padding: auto;
+    background-color: rgba(190, 158, 94, 0.85);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(190, 158, 94, 0.5);
+    outline: 5px solid rgba(190, 150, 94, 0.7);
+    outline-offset: -7px;
 
-    @include MQ(S) {
-        grid-column: 1/2;
-        grid-row: 1;
+    h3,
+    abbr,
+    a {
+        color: rgba(190, 150, 94, 0.8);
+        text-shadow: 1px 1px 2px $color-1;
     }
-}
 
-//part Cami
-.main {
-    grid-column: 1/2;
-    grid-row: 2/6;
+    abbr {
+        font-size: 1.3rem;
+    }
+
+    a {
+        color: $color-5;
+        text-decoration: none;
+        text-shadow: 1px 1px 1px $color-1;
+    }
 
     @include MQ(S) {
-        background-color: $color-4;
-        grid-column: 1/2;
+    }
+
+    @include MQ(M) {
+        width: 90%;
+        grid-column: 1/4;
+        grid-row: 2;
+ 
+    }
+
+    @include MQ(L) {
+        width: 90%;
+        grid-column: 1/4;
         grid-row: 2;
     }
 }
@@ -287,7 +447,6 @@ p {
 }
 
 .wrapper {
-
     padding: 1rem;
     font-size: 0.9rem;
     color: $color-1;
@@ -346,10 +505,22 @@ p {
 .select,
 .archives,
 .resources {
-    color: $color-2;
-    text-shadow: 1px 1px 1px $color-1, 2px 2px 2px $color-3;
+    font-family: $font2;
     text-transform: uppercase;
-    font-size: 1.2rem;
+    color: $color-3;
+    cursor: default;
+    margin: 0;
+    display: block;
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 100px;
+    text-shadow: 0 1px 0 $color-4,
+        0 2px 0 $color-2,
+        0 3px 0 $color-3,
+        0 4px 0 $color-4,
+        0 6px 0 transparent,
+        0 7px 0 transparent,
+        0 8px 0 transparent;
 
     @include MQ(M) {
         font-size: 1.5rem;
@@ -377,7 +548,7 @@ p {
 .designer-name {
     font-family: $font2;
     color: $color-5;
-    text-shadow: 1px 1px 1px $color-1, 2px 2px 2px $color-4;
+    text-shadow: 1px 1px 1px $color-6, 2px 2px 2px $color-4;
 }
 
 
@@ -423,7 +594,7 @@ p {
                 font-family: $font1;
                 color: $color-3;
                 text-transform: uppercase;
-                font-size: 1rem;
+                font-size: 1.3rem;
                 text-shadow: 1px 1px 1px $color-1;
             }
         }
@@ -454,8 +625,9 @@ p {
 footer {
     text-align: center;
     background-color: $color-5;
-    padding: 0.5rem;
-    margin: 0 -1.2rem;
+    padding: 1rem 0.5rem;
+    margin: 1rem;
+    border: 2px solid rgba(1, 141, 140, 0.95);
 
     a {
         font-family: $font1;
@@ -471,5 +643,24 @@ footer {
 
     a:hover {
         color: $color-4;
+    }
+
+    @include MQ(S) {
+   
+    }
+
+    @include MQ(M) {
+        grid-column: 1/4;
+        grid-row: 3;
+        margin: 0;
+        font-size: 2rem;
+    }
+
+    @include MQ(L) {
+        grid-column: 1/4;
+        grid-row: 3;
+       margin: 0;
+       font-size: 2rem;
+   
     }
 }
