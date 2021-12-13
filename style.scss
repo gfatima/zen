@@ -8,9 +8,22 @@
     grid-template-columns: $col1 $col2;
 }
 
-//part ivette
-html {
+@mixin look ($w, $h, $mtb, $mlr, $bc, $br) {
+    width: $w;
+    height: $h;
+    margin: $mtb $mlr;
+    background-color: $bc;
+    border-radius: $br;
+}
 
+@mixin style ($f, $sz, $c, $tt) {
+    font-family: $f;
+    font-size: $sz;
+    color: $c;
+    text-transform: $tt;
+}
+
+html {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -30,6 +43,7 @@ body {
 }
 
 h3 {
+    @include style ($font2, 1.2rem, $color-5, none);
     font-family: $font2;
     font-size: 35px;
     color: $color-5;
@@ -38,7 +52,7 @@ h3 {
 
 .page-wrapper {
     background-color: #fed6e173;
-    width: 80%;
+    width: 85%;
     margin: 0 auto;
     padding: 1.2em;
     display: flex;
@@ -57,7 +71,6 @@ h3 {
     }
 }
 
-//part elena
 .intro {
 
     @include MQ(S) {
@@ -72,18 +85,17 @@ header {
     flex-direction: column-reverse;
 
     h1 {
-        font-family: $font3;
-        font-size: 3rem;
-        color: $color-6;
-        text-shadow: 1px 1px 2px $color-5, 2px 2px 2px $color-2;
+        @include style ($font3, 3rem, $color-6, none);
+        text-shadow: 1px 1px 2px $color-5,
+            2px 2px 2px $color-2,
+            3px 3px 2px $color-1,
+            3px 3px 12px $color-2;
+        animation: blur 2s ease-out infinite;
     }
 
     h2 {
-        font-family: $font1;
-        font-size: 2.5rem;
-        color: $color-3;
-        text-shadow: 2px 2px 2px $color-2, 2px 2px 2px $color-1, 2px 2px 2px $color-4;
-        text-transform: uppercase;
+        @include style ($font1, 2.2rem, $color-3, uppercase);
+        text-shadow: 2px 2px 2px $color-2, 2px 2px 2px $color-2, 2px 2px 2px $color-4, 3px 3px 8px $color-1;
         margin: 0;
         padding: 0;
 
@@ -101,7 +113,6 @@ header {
 
         h1 {
             text-align: center;
-            margin-bottom: 0;
             font-size: 3.3rem;
             margin-bottom: 1.5rem;
         }
@@ -142,6 +153,29 @@ header {
     }
 }
 
+@keyframes blur {
+    from {
+        text-shadow: 0px 0px 5px #fff,
+            0px 0px 5px #fff,
+            0px 0px 12.5px #fff,
+            0px 0px 12.5px #fff,
+            0px 0px 12.5px #fff,
+            0px 0px 12.5px #fff,
+            0px 0px 12.5px #fff,
+            0px 0px 12.5px #fff,
+            0px 0px 25px #fff,
+            0px 0px 25px #fff,
+            0px 0px 25px #7B96B8,
+            0px 0px 75px #7B96B8,
+            0px 5px 50px #7B96B8,
+            0px 5px 50px #7B96B8,
+            0px 5px 50px #7B96B8,
+            0px 5px 50px #7B96B8,
+            0px -5px 50px #7B96B8,
+            0px -5px 50px #7B96B8;
+    }
+}
+
 p {
     font-family: $font1;
 }
@@ -154,41 +188,42 @@ p {
 
     @include MQ(S) {
         zoom: 15%;
-        display: flex;
-        justify-content: flex-end;
-        margin: 1.5rem;
 
     }
 
     @include MQ(M) {
-        zoom: 20%;
-        display: flex;
-        justify-content: flex-end;
-        margin: 1.5rem;
+        zoom: 18%;
     }
 
 }
 
 .summary {
     margin: 1rem;
+
     p {
-        text-transform: uppercase;
-        text-align: justify;
+        text: {
+            transform: uppercase;
+            align: justify;
+        }
+
         font-weight: bold;
         padding: 0.5rem;
         color: $color-1;
-       
+        letter-spacing: .15rem;
 
         abbr {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: $color-4;
-            text-shadow: 2px 2px 2px $color-3;
+            text-shadow: 2px 2px 2px $color-3, 2px 2px 2px $color-2, 3px 3px 1px $color-1;
         }
 
         a {
             color: $color-5;
-            text-shadow: 1px 1px 1px $color-1;
-            text-decoration: none;
+
+            text: {
+                shadow: 1px 1px 1px $color-1;
+                decoration: none;
+            }
         }
 
         @include MQ(S) {
@@ -204,20 +239,121 @@ p {
     justify-content: center;
 
 
+    @include MQ(S) {
+        content: url(./image/brush.png);
+        zoom: 13%;
+        width: 50%;
+        position: absolute;
+        left: -50rem;
+        top: 150rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        box-sizing: content-box;
+        animation: orbit 3s linear infinite;
+    }
+
     @include MQ(M) {
         content: url(./image/brush.png);
         zoom: 16%;
         width: 32%;
         position: absolute;
         left: -50rem;
-        top: -20rem;
+        top: 150rem;
         overflow: hidden;
         display: flex;
         flex-direction: column;
         box-sizing: content-box;
     }
+}
 
+@keyframes orbit {
+    0% {
+        transform: translate(0, 0);
+    }
 
+    5% {
+        transform: translate(0, 0);
+    }
+
+    /* don't change for 5% of the time...pause */
+    25% {
+        transform: translate(300%, 0%);
+    }
+
+    /* start moving again */
+    30% {
+        transform: translate(300%, 0%);
+    }
+
+    /* pause */
+    50% {
+        transform: translate(300%, 300%);
+    }
+
+    /* move */
+    55% {
+        transform: translate(300%, 300%);
+    }
+
+    75% {
+        transform: translate(0%, 300%);
+    }
+
+    80% {
+        transform: translate(0%, 300%);
+    }
+
+    100% {
+        transform: translate(0%, 0%);
+    }
+
+}
+
+@include MQ(S) {
+
+    @keyframes orbit {
+        0% {
+            transform: translate(0, 0);
+        }
+
+        5% {
+            transform: translate(0, 0);
+        }
+
+        /* don't change for 5% of the time...pause */
+        25% {
+            transform: translate(200%, -80%);
+        }
+
+        /* start moving again */
+        30% {
+            transform: translate(200%, -80%);
+        }
+
+        /* pause */
+        50% {
+            transform: translate(20%, 20%);
+        }
+
+        /* move */
+        55% {
+            transform: translate(20%, 20%);
+        }
+
+        75% {
+            transform: translate(0%, 20%);
+        }
+
+        80% {
+            transform: translate(0%, 20%);
+        }
+
+        100% {
+            transform: translate(0%, 0%);
+        }
+
+    }
 }
 
 .preamble {
@@ -232,7 +368,7 @@ p {
     background-image: url('https://live.staticflickr.com/2389/1571741969_44af337500_c.jpg');
     background-position: center center;
     background-size: cover;
-    backdrop-filter: grayscale(30%) brightness(50%);
+    //   backdrop-filter: grayscale(30%) brightness(50%);
     transition: all 1s ease 0s;
 
     h3 {
@@ -243,26 +379,25 @@ p {
 
     p {
         color: $color-6;
-        text-shadow: 1.5px 1.5px 1px $color-1;
+        text-shadow: 1.5px 1.5px 1px $color-1, 2px 2px 3px $color-1;
         backdrop-filter: none;
         font-weight: bold;
     }
 }
 
-
-
 .explanation,
 .participation,
 .benefits,
 .requirements {
-    margin-top: 0;
-    margin-bottom: 1em;
-    padding: 1rem;
 
     h3,
     p {
-        padding: 0 2px 0 2px;
+        padding: 2px 0.8rem;
         margin: 0;
+    }
+
+    h3 {
+        font-size: 2rem;
     }
 
 }
@@ -276,7 +411,11 @@ p {
     border-top-right-radius: 0;
     border-top-left-radius: 0;
 
-    @include MQ(S) {}
+    @include MQ(S) {
+        border: 15px ridge $color-1;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 
     @include MQ(M) {
         border: 15px ridge $color-1;
@@ -300,13 +439,9 @@ p {
     }
 }
 
+
 .explanation {
-    width: 80%;
-    height: auto;
-    margin: 4% auto;
-    padding: auto;
-    background-color: rgba(227, 228, 229, 0.9);
-    border-radius: 15px;
+    @include look(94%, auto, 4%, auto, rgba(227, 228, 229, 0.9), 15px);
     backdrop-filter: blur(10px);
     border: 2px solid rgba(227, 228, 229, 0.8);
     outline: 5px solid rgba(227, 228, 229, 0.8);
@@ -316,7 +451,7 @@ p {
     abbr,
     a {
         color: rgba(227, 228, 229, 0.8);
-        text-shadow: 1px 1px 2px $color-1;
+        text-shadow: 1px 1px 2px $color-1, 1px 1px 2px $color-1, 1px 1px 2px $color-1;
     }
 
     abbr {
@@ -324,14 +459,21 @@ p {
     }
 
     @include MQ(S) {
-        padding: auto;
+        max-width: 94%;
+        grid-column: 1/3;
+        grid-row: 1;
     }
 
     @include MQ(M) {
-        width: 90%;
+        width: 94%;
         grid-column: 1/3;
         grid-row: 1;
+    }
 
+    @include MQ(L) {
+        width: 94%;
+        grid-column: 1/3;
+        grid-row: 1;
     }
 }
 
@@ -348,16 +490,99 @@ p {
         display: flex;
         flex-direction: column;
         box-sizing: content-box;
+        animation: orbit1 3s linear infinite;
+    }
+}
+
+@keyframes orbit1 {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    5% {
+        transform: translate(0, 0);
+    }
+
+    /* don't change for 5% of the time...pause */
+    25% {
+        transform: translate(0, -300%);
+    }
+
+    /* start moving again */
+    30% {
+        transform: translate(0, -300%);
+    }
+
+    /* pause */
+    50% {
+        transform: translate(-50%, -300%);
+    }
+
+    /* move */
+    55% {
+        transform: translate(-70%, -300%);
+    }
+
+    75% {
+        transform: translate(0%, -300%);
+    }
+
+    80% {
+        transform: translate(0%, -300%);
+    }
+
+    100% {
+        transform: translate(0%, 0%);
+    }
+
+}
+
+@include MQ(M) {
+
+    @keyframes orbit1 {
+        0% {
+            transform: translate(0, 0);
+        }
+
+        5% {
+            transform: translate(0, 0);
+        }
+
+        25% {
+            transform: translate(0, -50%);
+        }
+
+        /* start moving again */
+        30% {
+            transform: translate(0, -100%);
+        }
+
+        /* pause */
+        50% {
+            transform: translate(-150%, -100%);
+        }
+
+        /* move */
+        55% {
+            transform: translate(-150%, -100%);
+        }
+
+        75% {
+            transform: translate(0%, -100%);
+        }
+
+        80% {
+            transform: translate(0%, -100%);
+        }
+
+        100% {
+            transform: translate(0%, 0%);
+        }
     }
 }
 
 .participation {
-    width: 80%;
-    height: auto;
-    margin: 4% auto;
-    padding: auto;
-    background-color: rgba(26, 198, 255, 0.9);
-    border-radius: 15px;
+    @include look(94%, auto, 4%, auto, rgba(26, 198, 255, 0.9), 15px);
     backdrop-filter: blur(10px);
     border: 2px solid rgba(26, 198, 255, 0.5);
     outline: 5px solid rgba(26, 198, 255, 0.7);
@@ -367,7 +592,7 @@ p {
     abbr,
     a {
         color: rgba(26, 198, 255, 0.8);
-        text-shadow: 1px 1px 2px $color-1;
+        text-shadow: 1px 1px 2px $color-1, 1px 1px 2px $color-1, 1px 1px 2px $color-1;
     }
 
     abbr {
@@ -382,12 +607,21 @@ p {
     }
 
     @include MQ(S) {
-        max-width: 580px;
-        
+        width: 96%;
+        grid-column: 3/5;
+        grid-row: 1;
+
     }
 
     @include MQ(M) {
-        width: 90%;
+        width: 96%;
+        grid-column: 3/5;
+        grid-row: 1;
+
+    }
+
+    @include MQ(L) {
+        width: 96%;
         grid-column: 3/5;
         grid-row: 1;
 
@@ -395,12 +629,7 @@ p {
 }
 
 .benefits {
-    width: 80%;
-    height: auto;
-    margin: 4% auto;
-    padding: auto;
-    background-color: rgba(255, 102, 255, 0.85);
-    border-radius: 15px;
+    @include look(94%, auto, 4%, auto, rgba(255, 102, 255, 0.85), 15px);
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 102, 255, 0.5);
     outline: 5px solid rgba(255, 102, 255, 0.7);
@@ -409,7 +638,7 @@ p {
     h3,
     abbr {
         color: rgba(255, 102, 255, 0.8);
-        text-shadow: 1px 1px 1px $color-1;
+        text-shadow: 1px 1px 2px $color-1, 1px 1px 2px $color-1, 1px 1px 1px $color-1;
     }
 
     abbr {
@@ -417,26 +646,29 @@ p {
     }
 
     @include MQ(S) {
-        width: 94%;
+        width: 84%;
         margin: 0 auto;
-     
+
     }
 
     @include MQ(M) {
-        width: 94%;
+        width: 98%;
+        grid-column: 1/5;
+        grid-row: 2;
+
+    }
+
+    @include MQ(M) {
+        width: 98%;
         grid-column: 1/5;
         grid-row: 2;
 
     }
 }
 
+
 .requirements {
-    width: 80%;
-    height: auto;
-    margin: 4% auto;
-    padding: auto;
-    background-color: rgba(190, 158, 94, 0.85);
-    border-radius: 15px;
+    @include look(94%, auto, 4%, auto, rgba(190, 158, 94, 0.85), 15px);
     backdrop-filter: blur(10px);
     border: 2px solid rgba(190, 158, 94, 0.5);
     outline: 5px solid rgba(190, 150, 94, 0.7);
@@ -446,7 +678,7 @@ p {
     abbr,
     a {
         color: rgba(190, 150, 94, 0.8);
-        text-shadow: 1px 1px 2px $color-1;
+        text-shadow: 1px 1px 2px $color-1, 1px 1px 2px $color-1, 1px 1px 2px $color-1;
     }
 
     abbr {
@@ -462,7 +694,7 @@ p {
     @include MQ(S) {}
 
     @include MQ(M) {
-        width: 94%;
+        width: 98%;
         margin: 1% auto;
         grid-column: 1/5;
         grid-row: 3;
@@ -470,7 +702,7 @@ p {
     }
 
     @include MQ(L) {
-        width: 94%;
+        width: 98%;
         grid-column: 1/5;
         grid-row: 3;
     }
@@ -493,8 +725,14 @@ p {
 
 }
 
+.zen-resources::before{
+    content: url(https://img.icons8.com/dusk/64/000000/flower-doodle.png);
+    display: flex;
+    justify-content: center;
+}
+
 .wrapper {
-    padding: 1rem;
+    padding: 1rem 0;
     font-size: 0.9rem;
     color: $color-1;
     font-weight: bold;
@@ -502,6 +740,8 @@ p {
     @include MQ(S) {
         height: 140rem;
     }
+
+
 
 }
 
@@ -556,10 +796,7 @@ p {
     margin: 0;
     padding: 0;
     display: block;
-    font-family: $font2;
-    text-transform: uppercase;
-    color: $color-2;
-    font-size: 1.3rem;
+    @include style ($font2, 1.3rem, $color-2, uppercase);
     text-align: center;
     line-height: 40px;
     animation: move linear 2000ms infinite;
@@ -639,20 +876,17 @@ p {
 .design-selection {
     display: flex;
     flex-direction: column;
+
     ul {
         li {
             padding: 0.3rem;
-
-            a {}
         }
     }
 }
 
 .design-name {
-    font-family: $font1;
-    color: $color-3;
-    text-transform: uppercase;
-    font-size: 1.2rem;
+
+    @include style ($font1, 1.2rem, $color-3, uppercase);
     text-shadow: 1px 1px 1px $color-1;
 
     @include MQ(M) {
@@ -663,12 +897,13 @@ p {
         font-size: 1rem;
     }
 
+    &:hover {
+        color: $color-6
+    }
 }
 
 .designer-name {
-    font-family: $font2;
-    font-size: 1.2rem;
-    color: $color-6;
+    @include style ($font2, 1.2rem, $color-6, none);
     text-shadow: 1px 1px 1px $color-1, 2px 2px 2px $color-4, 2px 2px 2px $color-4;
 
     @include MQ(M) {
@@ -678,16 +913,20 @@ p {
     @include MQ(L) {
         font-size: 1rem;
     }
+
+    &:hover {
+        color: $color-6
+    }
 }
 
 
 .next a {
-    font-family: $font1;
-    color: $color-3;
-    text-transform: uppercase;
-    font-size: 1rem;
+    @include style ($font1, 1rem, $color-3, uppercase);
     text-shadow: 1px 1px 1px $color-1;
 
+    &:hover {
+        color: $color-6
+    }
 }
 
 .indicator {
@@ -696,11 +935,12 @@ p {
 }
 
 .viewall a {
-    font-family: $font1;
-    color: $color-3;
-    text-transform: uppercase;
-    font-size: 1rem;
+    @include style ($font1, 1rem, $color-3, uppercase);
     text-shadow: 1px 1px 1px $color-1;
+
+    &:hover {
+        color: $color-6
+    }
 }
 
 
@@ -720,11 +960,12 @@ p {
                 text-decoration: none;
                 padding: 0;
                 margin: 0;
-                font-family: $font1;
-                color: $color-3;
-                text-transform: uppercase;
-                font-size: 1.3rem;
+                @include style ($font1, 1.3rem, $color-3, uppercase);
                 text-shadow: 1px 1px 1px $color-1;
+
+                &:hover {
+                    color: $color-6
+                }
             }
         }
     }
@@ -761,21 +1002,25 @@ p {
             }
         }
     }
+
+    &:hover {
+        color: $color-6
+    }
 }
 
 footer {
     text-align: center;
-    background-color: $color-5;
+    background-color: #000;
     padding: 1rem 0.5rem;
     margin: 1rem;
-    border: 2px solid rgba(1, 141, 140, 0.95);
+    border: 2px solid $color-1;
 
     a {
-        font-family: $font1;
-        color: $color-2;
+        @include style ($font1, 2rem, $color-2, uppercase);
+        text-shadow: 1px 1px 1px $color-1, 2px 2px 1px $color-1, 1px 1px 8px $color-4;
         margin-right: 20px;
         text-decoration: none;
-        text-transform: uppercase;
+        font-weight: bold;
     }
 
     a:visited {
