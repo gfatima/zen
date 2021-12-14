@@ -537,6 +537,49 @@ p {
 
 }
 
+@include MQ(S) {
+
+    @keyframes orbit1 {
+        0% {
+            transform: translate(0, 0);
+        }
+
+        5% {
+            transform: translate(0, 0);
+        }
+
+        25% {
+            transform: translate(0, -100%);
+        }
+
+        /* start moving again */
+        30% {
+            transform: translate(0, -100%);
+        }
+
+        /* pause */
+        50% {
+            transform: translate(-300%, -100%);
+        }
+
+        /* move */
+        55% {
+            transform: translate(-150%, -100%);
+        }
+
+        75% {
+            transform: translate(0%, -100%);
+        }
+
+        80% {
+            transform: translate(0%, -100%);
+        }
+
+        100% {
+            transform: translate(0%, 0%);
+        }
+    }
+}
 @include MQ(M) {
 
     @keyframes orbit1 {
@@ -646,8 +689,10 @@ p {
     }
 
     @include MQ(S) {
-        width: 84%;
+        width: 98%;
         margin: 0 auto;
+        grid-column: 1/5;
+        grid-row: 2;
 
     }
 
@@ -691,7 +736,12 @@ p {
         text-shadow: 1px 1px 1px $color-1;
     }
 
-    @include MQ(S) {}
+    @include MQ(S) {
+        width: 98%;
+        margin: 1% auto;
+        grid-column: 1/5;
+        grid-row: 3;
+    }
 
     @include MQ(M) {
         width: 98%;
@@ -725,7 +775,7 @@ p {
 
 }
 
-.zen-resources::before{
+.zen-resources::before {
     content: url(https://img.icons8.com/dusk/64/000000/flower-doodle.png);
     display: flex;
     justify-content: center;
@@ -1031,7 +1081,12 @@ footer {
         color: $color-4;
     }
 
-    @include MQ(S) {}
+    @include MQ(S) {
+        grid-column: 1/5;
+        grid-row: 4;
+        margin: 0;
+        font-size: 2rem
+    }
 
     @include MQ(M) {
         grid-column: 1/5;
